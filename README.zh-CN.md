@@ -16,31 +16,6 @@ stream disconnected before completion
 
 下面就是我最终整理出的通俗流程。
 
-## 先说隐私：哪些内容不能公开
-
-这次经历中最容易误传的是日志。下面这些内容不要放入 GitHub、Issue、聊天或截图：
-
-- 服务器公网 IP 或 EasyTier 节点地址；
-- EasyTier 网络密钥、服务器密码、笔记本 sudo 密码；
-- ChatGPT 密码、验证码、登录 Token；
-- GitHub Token；
-- SSH 私钥内容；
-- 可复用的完整主机指纹、真实用户名和内部网络名称。
-
-公网 IP 不一定是“密码”，但公开后会暴露服务器入口，增加扫描和定向攻击风险。用户名和主机指纹通常不能单独登录，但会帮助别人识别目标。网络密钥、密码、Token 和私钥则属于高风险秘密。
-
-因此本文只使用：
-
-```text
-<server-ip>
-<server-user>
-<easytier-network-name>
-<easytier-secret>
-<host-fingerprint>
-```
-
-如果秘密已经出现在公开日志里，应立即更换，而不是只删除那一行文字。
-
 ## 第一幕：我先确认笔记本代理
 
 我在笔记本上启动 Clash，并在本地终端检查端口：
@@ -315,4 +290,4 @@ done
 3. VS Code 已经会根据 SSH 配置建立转发，不要再重复手动 `ssh -R`。
 4. 只检查当前终端不够，必须检查 Codex app-server 的环境。
 5. 代理修改后要重启 VS Code Server 和 Codex app-server。
-6. 公开分享前必须脱敏；秘密一旦泄露就应该轮换。
+
