@@ -16,30 +16,6 @@ The real setup had three separate paths:
 
 This guide tells the story as a sequence you can follow.
 
-## Privacy first: what must never be published
-
-Do not put any of these in GitHub, an issue, chat, or a screenshot:
-
-- the server's public IP or EasyTier node address;
-- the EasyTier network secret, server password, or laptop sudo password;
-- ChatGPT passwords, verification codes, or login tokens;
-- GitHub tokens;
-- SSH private-key contents;
-- reusable full host fingerprints, real usernames, or internal network names.
-
-A public IP is not a password, but it exposes an entry point and can increase scanning and targeted-attack risk. A username or host fingerprint normally cannot log anyone in by itself, but it helps identify a target. Network secrets, passwords, tokens, and private keys are high-risk credentials.
-
-This guide uses placeholders only:
-
-```text
-<server-ip>
-<server-user>
-<easytier-network-name>
-<easytier-secret>
-<host-fingerprint>
-```
-
-If a secret has appeared in a public log, rotate it immediately; deleting the line is not enough.
 
 ## Act I: I checked the laptop proxy first
 
@@ -315,4 +291,3 @@ The final root cause in my case was that the current shell used `17891`, but the
 3. When VS Code uses the SSH configuration, do not create a duplicate `ssh -R`.
 4. Inspect the real process environment, not only the current shell.
 5. Restart VS Code Server and Codex app-server after proxy changes.
-6. Sanitize before publishing; rotate any secret that appeared in a log.
